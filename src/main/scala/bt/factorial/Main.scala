@@ -2,6 +2,7 @@ package bt.factorial
 
 import functions.{evaluateArgs, factorial, timeIt}
 
+
 object Main extends App {
 
   println("\nFactorial v1.0.0")

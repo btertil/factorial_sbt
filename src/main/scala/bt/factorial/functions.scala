@@ -16,6 +16,8 @@ object functions {
     result
   }
 
+  def mySum(x: Int, y: Int): Int = x + y
+
   def factorial(x: Int): Long = {
     @tailrec
     def iterate(acc: Long, step: Int): Long = {
@@ -24,7 +26,7 @@ object functions {
     iterate(1, x)
   }
 
-  def evaluateArgs(x: Array[String], defaultValue: Int): Int = {
+  def evaluateArgs(x: Array[String], defaultValue: Int = 8, maxVal: Int = 20): Int = {
 
     def factorialArgErrorMsg(): Unit =
       println(redString(s"ERROR! Factorial in this system can be calculated only for natural numbers <= 20, asked for '${x(0)}'"))
@@ -35,7 +37,7 @@ object functions {
     if (x.isEmpty) defaultValue else {
       try {
         val extracted = x(0).toInt
-        if (extracted <= 20) extracted else {
+        if (extracted <= maxVal) extracted else {
           factorialArgErrorMsg()
           defaultInsteadMsg()
           defaultValue
