@@ -15,3 +15,7 @@ Tested with cmd line sbt, Intellij and vscode (metals plugin)
 * `sbt assembly`: creates fat jar (sbt-assembly plugin needed)
 * `sbt dist`: creates zipped distro (sbt-native-packager needed + JavaAppPackaging)
 * `sbt Docker/publishLocal`: creates dockerized app (sbt-native-packager needed + JavaAppPackaging)
+
+### Requirements
+* [Java JDK](https://www.oracle.com/java/technologies/downloads/)
+* [SBT](https://www.scala-sbt.org/)
