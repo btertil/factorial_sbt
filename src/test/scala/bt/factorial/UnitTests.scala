@@ -23,4 +23,8 @@ class UnitTests extends AnyFunSuite {
     assert(evaluateArgs(Array("5"), defaultValue = 20) == 5, "evaluateArgs(\"5\", defaultValue = 20) should be 5")
   }
 
+  test("gcd(45, 18)") {
+    assert(gcd(45, 18) == 9, "gcd(45, 18) should be 5")
+  }
+
 }
