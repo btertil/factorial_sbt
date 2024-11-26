@@ -27,4 +27,13 @@ class UnitTests extends AnyFunSuite {
     assert(gcd(45, 18) == 9, "gcd(45, 18) should be 5")
   }
 
+
+  test("sumF identity function") {
+    assert(sumF(x => x, 10) == 55)
+  }
+
+  test("sumF factorial function") {
+    assert(sumF(factorial, 5) == 1 + 2 + 6 + 24 + 120)
+  }
+
 }
