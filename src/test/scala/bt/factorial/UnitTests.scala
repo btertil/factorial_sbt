@@ -28,12 +28,20 @@ class UnitTests extends AnyFunSuite {
   }
 
 
-  test("sumF identity function") {
+  test("sumF anonymous identity function") {
     assert(sumF(x => x, 10) == 55)
   }
 
   test("sumF factorial function") {
     assert(sumF(factorial, 5) == 1 + 2 + 6 + 24 + 120)
+  }
+
+  test("sumF2 with anonymous function") {
+    assert(sumF2((x, y) => x + y, 5) == 50)
+  }
+
+  test("sumF2 with mySum function") {
+    for (i <- Seq(1, 8, 25, 57)) assert(sumF2(mySum, i) == (i + i) * i)
   }
 
 }
