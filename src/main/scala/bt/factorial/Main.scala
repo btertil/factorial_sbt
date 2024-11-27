@@ -12,8 +12,8 @@ object Main extends App {
 
   timeIt {
     for (i <- 1 to param) println (s"factorial $i is: ${fansi.Color.Magenta(factorial(i).toString())}")
-    println(s"SumF of all above values is: ${fansi.Color.Cyan(sumF(factorial, param).toString())}")
-    println(s"sumF2(mySum, $param) is ${sumF2(mySum, param)}")
+    println(s"Sum of all above values is: ${fansi.Color.Cyan(sumFuncResults(factorial, param).toString())}")
+    println(s"Sum of results of parametrized mySym function is sumFuncResultsParametrized(mySum, $param)($param, $param) is ${sumFuncResultsParametrized(mySum, param)(param, param)}")
   }
 
 }
