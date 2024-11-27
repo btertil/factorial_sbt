@@ -28,12 +28,20 @@ class UnitTests extends AnyFunSuite {
   }
 
 
-  test("sumF identity function") {
-    assert(sumF(x => x, 10) == 55)
+  test("sumFuncResults: anonymous identity function") {
+    assert(sumFuncResults(x => x, 10) == 55)
   }
 
-  test("sumF factorial function") {
-    assert(sumF(factorial, 5) == 1 + 2 + 6 + 24 + 120)
+  test("sumFuncResults: factorial function") {
+    assert(sumFuncResults(factorial, 5) == 1 + 2 + 6 + 24 + 120)
+  }
+
+  test("sumFuncResultsParametrized with anonymous function") {
+    assert(sumFuncResultsParametrized((x, y) => x + y, 5)(5, 5) == 50)
+  }
+
+  test("sumFuncResultsParametrized with mySum function - curried verion (mySum args passed directly as (i,i))") {
+    for (i <- Seq(1, 8, 25, 57)) assert(sumFuncResultsParametrized(mySum, i)(i, i) == (i + i) * i)
   }
 
 }

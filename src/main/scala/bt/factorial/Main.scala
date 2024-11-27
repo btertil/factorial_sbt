@@ -1,6 +1,6 @@
 package bt.factorial
 
-import functions.{evaluateArgs, factorial, timeIt}
+import functions._
 
 
 object Main extends App {
@@ -12,6 +12,8 @@ object Main extends App {
 
   timeIt {
     for (i <- 1 to param) println (s"factorial $i is: ${fansi.Color.Magenta(factorial(i).toString())}")
+    println(s"Sum of all above values is: ${fansi.Color.Cyan(sumFuncResults(factorial, param).toString())}")
+    println(s"Sum of results of parametrized mySum runs is sumFuncResultsParametrized(mySum, $param)($param, $param): ${sumFuncResultsParametrized(mySum, param)(param, param)}")
   }
 
 }

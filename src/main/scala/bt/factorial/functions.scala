@@ -16,7 +16,7 @@ object functions {
     result
   }
 
-  def mySum(x: Int, y: Int): Int = x + y
+  def mySum(x: Int, y: Int): Long = x + y
 
   def factorial(x: Int): Long = {
     @tailrec
@@ -54,6 +54,8 @@ object functions {
   @tailrec
   def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
 
-  def sumF(f: Int => Long, limit: Int): Long = { for (i <- 1 to limit) yield f(i) }.sum
-  
+  def sumFuncResults(f: Int => Long, limit: Int): Long = { for (i <- 1 to limit) yield f(i) }.sum
+  def sumFuncResultsParametrized(f: (Int, Int) => Long, limit: Int)(x: Int, y: Int): Long =
+    { for (i <- 1 to limit) yield f(x, y) }.sum
+
 }
