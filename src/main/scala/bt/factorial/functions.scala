@@ -16,7 +16,7 @@ object functions {
     result
   }
 
-  def mySum(x: Int, y: Int): Int = x + y
+  def mySum(x: Int, y: Int): Long = x + y
 
   def factorial(x: Int): Long = {
     @tailrec
@@ -55,5 +55,9 @@ object functions {
   def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
 
   def sumF(f: Int => Long, limit: Int): Long = { for (i <- 1 to limit) yield f(i) }.sum
+  def sumF2(f: (Int, Int) => Long, limit: Int): Long = { for (i <- 1 to limit) yield f(limit, limit) }.sum
+
   
+  // val sumF2 (Int, Int) => Long = (a, b) => a + b
+
 }
