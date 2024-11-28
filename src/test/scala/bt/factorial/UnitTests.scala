@@ -41,7 +41,15 @@ class UnitTests extends AnyFunSuite {
   }
 
   test("sumFuncResultsParametrized with mySum function - curried verion (mySum args passed directly as (i,i))") {
-    for (i <- Seq(1, 8, 25, 57)) assert(sumFuncResultsParametrized(mySum, i)(i, i) == (i + i) * i)
+    for (i <- Seq(1, 8, 25, 57)) assert(sumFuncResultsParametrized(mySum, i)(23, 8) == (23 + 8) * i)
+  }
+
+  test("sumFuncResultsParametrized with lambda function with modulo - curried verion (mySum args passed directly as (i,i))") {
+    for (i <- Seq(1, 8, 25, 57)) assert(sumFuncResultsParametrized((x, y) => x % y, i)(23, 8) == (23 % 8) * i)
+  }
+
+  test("sumFuncResultsParametrized with lambda function with diff - curried verion (mySum args passed directly as (i,i))") {
+    for (i <- Seq(1, 8, 25, 57)) assert(sumFuncResultsParametrized((x, y) => x - y, i)(23, 8) == (23 - 8) * i)
   }
 
 }
