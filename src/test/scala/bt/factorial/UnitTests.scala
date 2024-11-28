@@ -57,6 +57,15 @@ class UnitTests extends AnyFunSuite {
   test("aggFuncResultsForRange: aggregates custom function for custom range with custom aggr function!") {
     assert(aggFuncResultsForRange(x => x, (x, y) => x + y)(1, 5) == 1 + 2 + 3 + 4 + 5)
     assert(aggFuncResultsForRange(x => x * x, (x, y) => x + y)(1, 5) == 1 + 4 + 9 + 16 + 25)
+
+    assert(aggFuncResultsForRange(x => x, (x, y) => x * y)(1, 5, 1) == 1 * 2 * 3 * 4 * 5)
+    assert(aggFuncResultsForRange(x => x * x, (x, y) => x * y)(1, 5, 1) == 1 * 4 * 9 * 16 * 25)
+
+    assert(aggFuncResultsForRange(x => x, (x, y) => x + y)(1, 5, 3) == 3 + 1 + 2 + 3 + 4 + 5)
+    assert(aggFuncResultsForRange(x => x * x, (x, y) => x + y)(1, 5, 3) == 3 + 1 + 4 + 9 + 16 + 25)
+
+    assert(aggFuncResultsForRange(x => x, (x, y) => x * y)(1, 5, 6) == 6 * 1 * 2 * 3 * 4 * 5)
+    assert(aggFuncResultsForRange(x => x * x, (x, y) => x * y)(1, 5, 6) == 6 * 1 * 4 * 9 * 16 * 25)
   }
 
 }
