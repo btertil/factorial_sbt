@@ -52,4 +52,11 @@ class UnitTests extends AnyFunSuite {
     for (i <- Seq(1, 8, 25, 57)) assert(sumFuncResultsParametrized((x, y) => x - y, i)(23, 8) == (23 - 8) * i)
   }
 
+  
+  // aggFuncResultsForRange
+  test("aggFuncResultsForRange: aggregates custom function for custom range with custom aggr function!") {
+    assert(aggFuncResultsForRange(x => x, (x, y) => x + y)(1, 5) == 1 + 2 + 3 + 4 + 5)
+    assert(aggFuncResultsForRange(x => x * x, (x, y) => x + y)(1, 5) == 1 + 4 + 9 + 16 + 25)
+  }
+
 }
