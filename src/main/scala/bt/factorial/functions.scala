@@ -58,4 +58,11 @@ object functions {
   def sumFuncResultsParametrized(f: (Int, Int) => Long, limit: Int)(x: Int, y: Int): Long =
     { for (i <- 1 to limit) yield f(x, y) }.sum
 
+
+  // This function is sggregating results of any Int => Int function for a range speciefied and optional starting value
+  // Aggregation method is also fully customizable and can be any function of type (Int, Int) => Int
+  def aggFuncResultsForRange(f: Int => Int, fAgg: (Int, Int) => Int)(lbound: Int, hbound: Int, fAggStartVal: Int = 0): Int =
+    { for (i <- lbound to hbound) yield f(i)}.foldLeft(fAggStartVal)(fAgg)
+
+
 }
