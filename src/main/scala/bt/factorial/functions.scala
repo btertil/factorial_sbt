@@ -61,8 +61,10 @@ object functions {
 
   // This function is sggregating results of any Int => Int function for a range speciefied and optional starting value
   // Aggregation method is also fully customizable and can be any function of type (Int, Int) => Int
-  def aggFuncResultsForRange(f: Int => Int, fAgg: (Int, Int) => Int)(lbound: Int, hbound: Int, fAggStartVal: Int = 0): Int =
+  def aggFuncResultsForRange(f: Int => Long, fAgg: (Long, Long) => Long)(lbound: Int, hbound: Int, fAggStartVal: Long = 0): Long =
     { for (i <- lbound to hbound) yield f(i)}.foldLeft(fAggStartVal)(fAgg)
 
+  def backAggFuncResultsForRange(f: Int => Long, fAgg: (Long, Long) => Long)(lbound: Int, hbound: Int, fAggStartVal: Long = 0): Long =
+    { for (i <- lbound to hbound) yield f(i)}.reduceRight(fAgg)
 
 }
