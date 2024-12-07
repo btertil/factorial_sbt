@@ -20,9 +20,12 @@ object Main extends App {
     // Because we want subtract all next values from the last (biggest) factorial and subtract them one by one!
     val diffOfFactorials = backAggFRange(factorial, (x, y) => y - x)(1, param)
 
+    val gcdFact = gcd(sumOfFactorials, diffOfFactorials)
+    val greyText = fansi.Color.True(130, 170, 130)(s"(${(sumOfFactorials/gcdFact).toString}, ${(diffOfFactorials/gcdFact).toString})")
+
     println(s"Sum of all above values is: ${fansi.Color.Cyan(sumOfFactorials.toString())}")
     println(s"Cumulated difference value: ${fansi.Color.Cyan(diffOfFactorials.toString)}")
-    println(s"Greatest common denominator of sum and difference: ${fansi.Color.Green(gcd(sumOfFactorials, diffOfFactorials).toString)}")
+    println(s"Greatest common denominator of sum and difference: ${fansi.Color.Green(gcdFact.toString)} $greyText")
   }
 
 }
