@@ -1,6 +1,6 @@
 package bt.factorial
 
-import functions.{timeIt, factorial, evaluateArgs, sumFuncResults, backAggFuncResultsForRange => backAggFRange}
+import functions.{timeIt, factorial, evaluateArgs, sumFuncResults, gcd, backAggFuncResultsForRange => backAggFRange}
 
 
 object Main extends App {
@@ -12,11 +12,17 @@ object Main extends App {
 
   timeIt {
     for (i <- 1 to param) println (s"factorial $i is: ${fansi.Color.Magenta(factorial(i).toString())}")
-    println(s"Sum of all above values is: ${fansi.Color.Cyan(sumFuncResults(factorial, param).toString())}")
-    
-    // Now cummulated difference, note y - x in aggFunc + reduceRight in backAggFuncResultsForRange!
-    // Because we want subtract all next values from the last (biggest) factorial and subtract is one by one!
-    println(s"Cumulated difference value: ${fansi.Color.Cyan(backAggFRange(factorial, (x, y) => y - x)(1, param).toString)}")
+
+    // sum all factorial values until param
+    val sumOfFactorials = sumFuncResults(factorial, param)
+
+    // Now cummulated difference with lambda expression, note y - x in aggFunc + reduceRight in backAggFuncResultsForRange!
+    // Because we want subtract all next values from the last (biggest) factorial and subtract them one by one!
+    val diffOfFactorials = backAggFRange(factorial, (x, y) => y - x)(1, param)
+
+    println(s"Sum of all above values is: ${fansi.Color.Cyan(sumOfFactorials.toString())}")
+    println(s"Cumulated difference value: ${fansi.Color.Cyan(diffOfFactorials.toString)}")
+    println(s"Greatest common denominator of sum and difference: ${fansi.Color.Green(gcd(sumOfFactorials, diffOfFactorials).toString)}")
   }
 
 }

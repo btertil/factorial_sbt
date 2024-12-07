@@ -52,7 +52,7 @@ object functions {
   }
 
   @tailrec
-  def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
+  def gcd(a: Long, b: Long): Long = if (b == 0) a else gcd(b, a % b)
 
   def sumFuncResults(f: Int => Long, limit: Int): Long = { for (i <- 1 to limit) yield f(i) }.sum
   def sumFuncResultsParametrized(f: (Int, Int) => Long, limit: Int)(x: Int, y: Int): Long =
