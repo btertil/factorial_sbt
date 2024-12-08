@@ -37,7 +37,7 @@ object functions {
     if (x.isEmpty) defaultValue else {
       try {
         val extracted = x(0).toInt
-        if (extracted <= maxVal) extracted else {
+        if (extracted >= 1 && extracted <= maxVal) extracted else {
           factorialArgErrorMsg()
           defaultInsteadMsg()
           defaultValue
