@@ -52,18 +52,19 @@ object functions {
   }
 
   @tailrec
-  def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
+  def gcd(a: Long, b: Long): Long = if (b == 0) a else gcd(b, a % b)
 
   def sumFuncResults(f: Int => Long, limit: Int): Long = { for (i <- 1 to limit) yield f(i) }.sum
   def sumFuncResultsParametrized(f: (Int, Int) => Long, limit: Int)(x: Int, y: Int): Long =
     { for (i <- 1 to limit) yield f(x, y) }.sum
 
 
-  // This function is sggregating results of any Int => Int function for a range speciefied and optional starting value
+  // This function is aggregating results of any Int => Long function for a range speciefied and optional starting value
   // Aggregation method is also fully customizable and can be any function of type (Int, Int) => Int
   def aggFuncResultsForRange(f: Int => Long, fAgg: (Long, Long) => Long)(lbound: Int, hbound: Int, fAggStartVal: Long = 0): Long =
     { for (i <- lbound to hbound) yield f(i)}.foldLeft(fAggStartVal)(fAgg)
 
+  // This function is aggregating results of simmilar functions but it is reducing from Right to Left (good fir differences)
   def backAggFuncResultsForRange(f: Int => Long, fAgg: (Long, Long) => Long)(lbound: Int, hbound: Int, fAggStartVal: Long = 0): Long =
     { for (i <- lbound to hbound) yield f(i)}.reduceRight(fAgg)
 
