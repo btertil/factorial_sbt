@@ -5,7 +5,7 @@ import functions.{timeIt, factorial, evaluateArgs, sumFuncResults, gcd, backAggF
 
 object Main extends App {
 
-  println("\nFactorial v1.0.0")
+  println("\nFactorial v1.1.0")
 
   private val defaultVal = 20
   private val param: Int = evaluateArgs(args, defaultVal)
