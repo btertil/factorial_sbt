@@ -23,8 +23,16 @@ class UnitTests extends AnyFunSuite {
     assert(evaluateArgs(Array("5"), defaultValue = 20) == 5, "evaluateArgs(\"5\", defaultValue = 20) should be 5")
   }
 
+  test("EvaluateArgs -5") {
+    assert(evaluateArgs(Array("-5"), defaultValue = 20) == 20, "evaluateArgs(\"-5\", defaultValue = 20) should be 20")
+  }
+
+  test("EvaluateArgs 0") {
+    assert(evaluateArgs(Array("0"), defaultValue = 20) == 20, "evaluateArgs(\"0\", defaultValue = 20) should be 20")
+  }
+
   test("gcd(45, 18)") {
-    assert(gcd(45, 18) == 9, "gcd(45, 18) should be 5")
+    assert(gcd(45, 18) == 9, "gcd(45, 18) should be 9")
   }
 
 
