@@ -32,7 +32,7 @@ class UnitTests extends AnyFunSuite {
   }
 
   test("gcd(45, 18)") {
-    assert(gcd(45, 18) == 9, "gcd(45, 18) should be 5")
+    assert(gcd(45, 18) == 9, "gcd(45, 18) should be 9")
   }
 
 
