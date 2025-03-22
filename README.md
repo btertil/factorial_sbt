@@ -17,11 +17,11 @@ Tested with cmd line sbt, Intellij and vscode (metals plugin)
 * `sbt Docker/publishLocal`: creates dockerized app (sbt-native-packager needed + JavaAppPackaging)
 
 ### Run Jar/App:
-* run jar:    `java -jar target/scala-2.13/factorial_sbt-assembly-1.0.0.jar <param>`
-* run app:    `target/universal/factorial_sbt-1.0.0/bin/factorial_sbt <param>` (please unzip app first)
-* run docker: `docker run factorial_sbt:1.0.0 <param>` 
+* run jar:    `java -jar target/scala-2.13/factorial_sbt-assembly-1.1.0.jar <param>`
+* run app:    `target/universal/factorial_sbt-1.1.0/bin/factorial_sbt <param>` (please unzip app first)
+* run docker: `docker run factorial_sbt:1.1.0 <param>` 
 
 ### Requirements
 * [Java JDK](https://www.oracle.com/java/technologies/downloads/)
 * [SBT](https://www.scala-sbt.org/)
-* optionally [Docker](https://www.docker.com/)
+* [Docker](https://www.docker.com/) optionally
